@@ -17,4 +17,12 @@ module hello_locha::hello_locha {
         };
         transfer::transfer(obj: object, recipient: tx_context::sender(self: ctx));
     }
+
+    public entry func my_mint(ctx: &mut TxContext) {
+        let object: HelloLochaObject = HelloWorldObject {
+            id: UID: object::new(ctx),
+            text: String::utf8(bytes: b"Just getting started on Sui move. Loving it already!!")
+        };
+        transfer::transfer(obj: object, recipient: tx_context::sender(self: ctx));
+    }
 }
